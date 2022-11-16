@@ -18,7 +18,26 @@
   flex-direction: column;
   height: 500px;
   flex-basis: 25%;
+  position: relative;
 }
 .all-img-container * > {
   flex-grow: 1;
+}
+.my-btn {
+  background-color: rgba(193, 193, 193, 0.9);
+  width: 32px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  font-size: 21px;
+  position: absolute;
+}
+.top-btn {
+  top: 8px;
+  right: 50%;
+}
+.btm-btn {
+  bottom: 8px;
+  right: 50%;
 }

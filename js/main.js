@@ -57,3 +57,17 @@ function createLittleImg() {
     allImgContainerEl.append(littleImg);
   }
 }
+
+// creo i due bottoni quindi li appendo al allimgcontainer e aggiungo eventlistener
+const buttonUp = document.createElement("button");
+const buttonDown = document.createElement("button");
+
+buttonUp.innerHTML = "&#x1F81D;";
+buttonUp.classList.add("my-btn");
+buttonUp.classList.add("top-btn");
+buttonDown.innerHTML = "&#x1F81F;";
+buttonDown.classList.add("my-btn");
+buttonDown.classList.add("btm-btn");
+
+allImgContainerEl.append(buttonUp);
+allImgContainerEl.append(buttonDown);
