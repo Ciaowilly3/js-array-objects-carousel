@@ -42,3 +42,18 @@ function createBigImg() {
 
   imgContainerEl.append(bigImg);
 }
+
+// anche le immagini piccole le creo con una funzione, e do ad ognuna un'altezza statica
+createLittleImg();
+function createLittleImg() {
+  for (let i = 0; i < imagesArray.length; i++) {
+    let littleImg = document.createElement("img");
+    let littleImgHeight = 100 / imagesArray.length;
+
+    littleImg.src = imagesArray[i].image;
+    littleImg.classList.add("little-img");
+    littleImg.style.height = littleImgHeight + "%";
+
+    allImgContainerEl.append(littleImg);
+  }
+}

@@ -4,6 +4,19 @@
   display: block;
   height: 100%;
 }
+.little-img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
 .img-container {
   height: 500px;
+}
+.all-img-container {
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+}
+.all-img-container * > {
+  flex-grow: 1;
 }
