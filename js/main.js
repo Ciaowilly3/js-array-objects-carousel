@@ -33,7 +33,7 @@ const imagesArray = [
 ];
 
 // creo l'immagine grande dentro una funzione per ordine
-createBigImg();
+let mainImg = createBigImg();
 function createBigImg() {
   let bigImg = document.createElement("img");
 
@@ -41,6 +41,8 @@ function createBigImg() {
   bigImg.classList.add("big-img");
 
   imgContainerEl.append(bigImg);
+
+  return bigImg;
 }
 
 // anche le immagini piccole le creo con una funzione, e do ad ognuna un'altezza statica
@@ -71,3 +73,10 @@ buttonDown.classList.add("btm-btn");
 
 allImgContainerEl.append(buttonUp);
 allImgContainerEl.append(buttonDown);
+
+buttonDown.addEventListener("click", function () {
+  indexImg += 1;
+  mainImg.classList.add("d-none");
+  mainImg.remove;
+  createBigImg();
+});
