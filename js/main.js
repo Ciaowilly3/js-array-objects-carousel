@@ -56,6 +56,8 @@ function createBigImg() {
     imgTitle.innerText = imagesArray[i].title;
     titleContainer.append(imgTitle);
     divArray[i] = createdContainerEl;
+    divArray[0].classList.add("d-block");
+    divArray[0].classList.remove("d-none");
   }
 }
 
@@ -92,6 +94,7 @@ allImgContainerEl.append(buttonUp);
 allImgContainerEl.append(buttonDown);
 
 buttonDown.addEventListener("click", function () {
+  indexImg += 1;
   if (indexImg > 4) {
     indexImg = 0;
   }
@@ -107,12 +110,24 @@ buttonDown.addEventListener("click", function () {
   }
   divArray[indexImg].classList.remove("d-none");
   divArray[indexImg].classList.add("d-block");
-  indexImg += 1;
 });
 
 buttonUp.addEventListener("click", function () {
-  indexImg = indexImg - 1;
-  divArray[indexImg].classList.add("d-none");
-
-  createBigImg();
+  if (indexImg == 0) {
+    divArray[0].classList.add("d-none");
+    divArray[0].classList.remove("d-block");
+    divArray[4].classList.add("d-block");
+    divArray[4].classList.remove("d-none");
+    indexImg = 5;
+  }
+  if (indexImg > 0 && indexImg != 5) {
+    indexImg -= 1;
+    divArray[indexImg].classList.add("d-block");
+    divArray[indexImg].classList.remove("d-none");
+    divArray[indexImg + 1].classList.add("d-none");
+    divArray[indexImg + 1].classList.remove("d-block");
+  }
+  if (indexImg == 5) {
+    indexImg = 4;
+  }
 });
