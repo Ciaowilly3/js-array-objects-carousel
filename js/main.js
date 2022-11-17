@@ -99,6 +99,12 @@ buttonDown.addEventListener("click", function () {
     divArray[indexImg - 1].classList.remove("d-block");
     divArray[indexImg - 1].classList.add("d-none");
   }
+  if (indexImg == 0) {
+    divArray[4].classList.remove("d-block");
+    divArray[4].classList.add("d-none");
+    divArray[0].classList.remove("d-block");
+    divArray[0].classList.add("d-none");
+  }
   divArray[indexImg].classList.remove("d-none");
   divArray[indexImg].classList.add("d-block");
   indexImg += 1;
