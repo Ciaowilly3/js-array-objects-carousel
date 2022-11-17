@@ -12,6 +12,7 @@
 .img-container {
   height: 500px;
   flex-basis: 75%;
+  position: relative;
 }
 .all-img-container {
   display: flex;
@@ -40,4 +41,22 @@
 .btm-btn {
   bottom: 8px;
   right: 50%;
+}
+.title-container {
+  color: rgb(253, 236, 236);
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  text-align: end;
+}
+
+/* effetti */
+
+.little-img:hover {
+  border: 1px solid rgb(253, 236, 236);
+}
+
+.my-btn:active {
+  scale: 1.1;
+  border: 1px solid black;
 }

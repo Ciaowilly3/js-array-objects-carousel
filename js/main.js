@@ -33,16 +33,30 @@ const imagesArray = [
 ];
 
 // creo l'immagine grande dentro una funzione per ordine
-let mainImg = createBigImg();
+let divArray = [];
+createBigImg();
 function createBigImg() {
-  let bigImg = document.createElement("img");
+  for (let i = 0; i < imagesArray.length; i++) {
+    let createdContainerEl = document.createElement("div");
+    imgContainerEl.append(createdContainerEl);
+    createdContainerEl.style.height = "500px";
+    createdContainerEl.classList.add("d-none");
+    let bigImg = document.createElement("img");
 
-  bigImg.src = imagesArray[indexImg].image;
-  bigImg.classList.add("big-img");
+    bigImg.src = imagesArray[i].image;
+    bigImg.classList.add("big-img");
 
-  imgContainerEl.append(bigImg);
+    createdContainerEl.append(bigImg);
 
-  return bigImg;
+    //   creo un contenitore sull'immagine per la scritta
+    let titleContainer = document.createElement("div");
+    titleContainer.classList.add("title-container");
+    createdContainerEl.append(titleContainer);
+    let imgTitle = document.createElement("h4");
+    imgTitle.innerText = imagesArray[i].title;
+    titleContainer.append(imgTitle);
+    divArray[i] = createdContainerEl;
+  }
 }
 
 // anche le immagini piccole le creo con una funzione, e do ad ognuna un'altezza statica
@@ -65,9 +79,12 @@ const buttonUp = document.createElement("button");
 const buttonDown = document.createElement("button");
 
 buttonUp.innerHTML = "&#x1F81D;";
+
 buttonUp.classList.add("my-btn");
 buttonUp.classList.add("top-btn");
+
 buttonDown.innerHTML = "&#x1F81F;";
+
 buttonDown.classList.add("my-btn");
 buttonDown.classList.add("btm-btn");
 
@@ -75,8 +92,21 @@ allImgContainerEl.append(buttonUp);
 allImgContainerEl.append(buttonDown);
 
 buttonDown.addEventListener("click", function () {
+  if (indexImg > 4) {
+    indexImg = 0;
+  }
+  if (indexImg > 0) {
+    divArray[indexImg - 1].classList.remove("d-block");
+    divArray[indexImg - 1].classList.add("d-none");
+  }
+  divArray[indexImg].classList.remove("d-none");
+  divArray[indexImg].classList.add("d-block");
   indexImg += 1;
-  mainImg.classList.add("d-none");
-  mainImg.remove;
+});
+
+buttonUp.addEventListener("click", function () {
+  indexImg = indexImg - 1;
+  divArray[indexImg].classList.add("d-none");
+
   createBigImg();
 });
